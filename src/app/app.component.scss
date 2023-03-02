@@ -1,0 +1,62 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.main-body {
+  padding-top: 20px;
+  margin: 0 auto;
+  max-width: 1348px;
+  mat-form-field {
+    width: 100%;
+  }
+}
+
+.action {
+  display: flex;
+  gap: 5px;
+}
+
+.auto-width{
+  .mat-form-field {
+    width: auto !important;
+  }
+  .mat-select-value {
+    max-width: 100%;
+    width: auto;
+  }
+}
+
+mat-select {
+  width: fit-content !important;
+  min-width: 100%;
+}
+
+::ng-deep .mat-form-field-infix {
+  min-width: 75px !important;
+  width: fit-content !important;
+}
+
+::ng-deep mat-select .mat-select-value {
+  width: fit-content;
+  min-width: 2ch;
+  max-width: 25ch;
+}
+::ng-deep mat-select .mat-select-placeholder {
+  width: fit-content;
+  min-width: 10ch;
+}
+
+.auto-width{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  .form-field-label {
+    white-space: nowrap;
+  }
+  .form-field-label + mat-form-field {
+    margin-left: 10px;
+  }
+  mat-form-field {
+    width:100%;
+  }
+}

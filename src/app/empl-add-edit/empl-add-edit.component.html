@@ -1,0 +1,65 @@
+<div mat-dialog-title>
+  <h1>Employee Form</h1>
+</div>
+<form [formGroup]="empForm" (ngSubmit)="onFormSubmit()">
+  <div mat-dialog-content class="content">
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>First Name</mat-label>
+        <input matInput type="text" placeholder="Ex. John" formControlName="fname">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Last Name</mat-label>
+        <input matInput placeholder="Ex. Doe" formControlName="lname">
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Email Id</mat-label>
+        <input matInput type="email" placeholder="Ex. xyz@abc.com" formControlName="emailId" ngModel email
+               oninput="this.value = this.value.toLowerCase()">
+      </mat-form-field>
+
+
+      <mat-form-field appearance="outline">
+        <mat-label>Department</mat-label>
+        <input matInput type="text" placeholder="Ex. Risk" formControlName="department">
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Designation</mat-label>
+        <input matInput type="text" placeholder="Ex. Software Engineer" formControlName="designation">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Salary(in Lacs)</mat-label>
+        <input matInput placeholder="Ex. 21 " type="number" formControlName="salary">
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Date of Joining</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="dateOfJoining">
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker [calendarHeaderComponent]="exampleHeader"></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Manager</mat-label>
+        <input matInput placeholder="Employee id" formControlName="manager">
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+      <mat-radio-group aria-label="Gender" formControlName="gender">
+        <mat-radio-button value="male">Male</mat-radio-button>
+        <mat-radio-button value="female">Female</mat-radio-button>
+      </mat-radio-group>
+    </div>
+  </div>
+  <div mat-dialog-actions class="action">
+    <button mat-raised-button type="button" mat-dialog-close="false">Cancel</button>
+    <button mat-raised-button color="primary" type="submit">Save</button>
+  </div>
+</form>
